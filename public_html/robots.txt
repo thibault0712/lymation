@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Allow: /landing
+Sitemap: https://lymation.pq.lu/sitemap.xml
+
+User-agent: *
+Allow: /landing
+Sitemap: https://lymation.pq.lu/sitemap.xml
