@@ -6,5 +6,6 @@ Lymation est un site internet qui avait pour objectif de remplacer le compte cru
   * Des cathégories
   * etc
 
+MON CODE EST BROUILLON
 
 Lymation était un projet qui a eu pour objectif de m'entrainer en php, le projet est totalement abandonné et libre de droit. Site accessible sur https://lymation.pq.lu.
