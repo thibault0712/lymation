@@ -59,7 +59,6 @@
     OneSignal.init({
       appId: "3ad21bac-4e1f-4b63-ae5e-63e6cea63ca8",
     });
-    OneSignal.setExternalUserId(<?php echo $data['id']; ?>);
   });
 </script>
 
