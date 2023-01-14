@@ -137,10 +137,22 @@
           <?php }else echo '</br>'; ?>
             <h6 class="u-text u-text-default u-text-1">
               <?php
-                $pseudo = $db->prepare('SELECT * FROM utilisateur WHERE token = ?');
-                $pseudo->execute(array($c['token'])); 
-                $data = $pseudo->fetch();
-                echo $data['pseudo'];
+                $req = $db->prepare('SELECT * FROM tout WHERE id = ?');
+                $req->execute(array($_GET['id']));
+                $tout = $req->fetch();
+                
+                $req = $db->prepare('SELECT * FROM commentary WHERE id_article = ?');
+                $req->execute(array($_GET['id']));
+                $commentaryofCreator = $req->fetch();
+                
+                if($tout['token'] == $c['token'] && $tout['anonyme'] == 'anonyme'){
+                    echo 'Anonyme';
+                }else{
+                    $pseudo = $db->prepare('SELECT * FROM utilisateur WHERE token = ?');
+                    $pseudo->execute(array($c['token'])); 
+                    $data = $pseudo->fetch();
+                    echo $data['pseudo'];
+                }
               ?></h6>
             <p class="u-text u-text-2"><?php echo $c['contenu']; ?></p>
             <p class="u-text u-text-default u-text-grey-40 u-text-3"><?php echo $c['date']; ?></p>
