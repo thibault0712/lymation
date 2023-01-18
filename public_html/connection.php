@@ -13,15 +13,17 @@
         $row = $chek->rowCount();
 
         if ($row == 1){
-                $password = password_hash($password, PASSWORD_BCRYPT);
-                
-                if ($password === $data['password']){
+                if (password_verify($password, $data['password'])){
+                    $auto_log = bin2hex(openssl_random_pseudo_bytes(64));
                     $_SESSION['pseudo'] = $pseudo;
                     $_SESSION['user'] = $data['token'];
-                    header('Location: /landing/Tout.php');
-                    setcookie('auto_log', $pseudo . '#' . $password, ( time() + 86400 * 90 ));
-                    die();
                     
+                    $req = $db->prepare('UPDATE utilisateur SET auto_log = ? WHERE token = ?');
+                    $req->execute(array($auto_log, $data['token']));
+                    #setcookie('auto_log', $auto_log, ( time() + 86400 * 90 ), "/", "lymation.pq.lu", true, true);
+                    setcookie('auto_log', $auto_log, ( time() + 86400 * 30 ));
+                    header('Location: /landing/Tout.php');
+                    die();
                 }else{
                     header('Location: /index.php?login_err=password');
                 }
@@ -31,3 +33,4 @@
     }else{
         header('Location: /index.php');
     }
+?>

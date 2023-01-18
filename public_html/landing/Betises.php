@@ -36,7 +36,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="Lymation">
     <meta name="description" content="">
-    <title>Lymation - Drôle</title>
+    <title>Lymation - Drôles</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Betises.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
