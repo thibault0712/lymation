@@ -123,7 +123,7 @@
               <textarea placeholder="Entrez votre message" rows="4" cols="50" id="message-0f12" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
             </div>
             <div class="u-form-checkbox u-form-group u-form-group-3">
-              <input type="checkbox" id="checkbox-ec00" name="checkbox" value="Anonyme">
+              <input type="checkbox" id="checkbox-ec00" name="checkbox" value="Anonyme" checked>
               <label for="checkbox-ec00" class="u-label">Anonyme<br>
               </label>
             </div>
