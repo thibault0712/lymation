@@ -26,7 +26,7 @@
             <?php 
                 if(isset($_GET['reg_err']))
                 {
-                    $err = htmlspecialchars($_GET['reg_err']);
+                    $err = htmlentities($_GET['reg_err']);
 
                     switch($err)
                     {

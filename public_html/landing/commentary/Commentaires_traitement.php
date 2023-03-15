@@ -26,7 +26,7 @@
             if($stamp <= date("Y-m-d H:i:s") || empty($date_max[0])){
                 if (strlen($_POST['commentary']) <= 250){
                     $req = $db->prepare('INSERT INTO commentary(token, id, contenu, date) VALUES(?, ?, ?, NOW())');
-                    $req->execute(array($_SESSION['user'], $_GET['id'], $_POST['commentary']));
+                    $req->execute(array($_SESSION['user'], $_GET['id'], htmlentities($_POST['commentary'])));
                     
                     $req = $db->prepare('SELECT * FROM tout WHERE id = ?');
                     $req->execute(array($_GET['id']));

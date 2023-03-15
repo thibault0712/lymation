@@ -13,6 +13,8 @@ $chek->execute(array($auto_log));
 $data = $chek->fetch();
 $row = $chek->rowCount();
 
+echo($row);
+
     if($row == 1){
         #Utilisateur vérifier
         $_SESSION['pseudo'] = $data['pseudo'];
@@ -28,13 +30,14 @@ $row = $chek->rowCount();
             header('location: ../index.php');
         }
     }else{
-        #Utilisateur non vérifier
-        unset($_COOKIE['auto_log']);
-        header('Location: ../index.php');
+        #L'utilisateur c'est connecté avec un autre appareil
+        setcookie('auto_log', NULL, -1); //Permet la suppression du cookie pour la version de dev
+        setcookie('auto_log', NULL, -1, "/", "lymation.pq.lu", true, true); //Permet la suppression du cookie pour la vraie version
+        header('Location: ../index.php?login_err=otherConection');
     }
 
 }else{
-    print('Cookie non disponible retour index.php');
+    echo('Cookie non disponible retour index.php');
     header('location: ../index.php');
 }
 

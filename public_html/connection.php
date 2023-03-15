@@ -4,8 +4,8 @@
 
     if(isset($_POST['pseudo']) && isset($_POST['password']))
     {
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        $password = htmlspecialchars($_POST['password']);
+        $pseudo = htmlentities($_POST['pseudo']);
+        $password = htmlentities($_POST['password']);
 
         $chek = $db->prepare('SELECT pseudo, password, token from utilisateur WHERE pseudo = ?');
         $chek->execute(array($pseudo));
@@ -20,8 +20,8 @@
                     
                     $req = $db->prepare('UPDATE utilisateur SET auto_log = ? WHERE token = ?');
                     $req->execute(array($auto_log, $data['token']));
-                    #setcookie('auto_log', $auto_log, ( time() + 86400 * 90 ), "/", "lymation.pq.lu", true, true);
-                    setcookie('auto_log', $auto_log, ( time() + 86400 * 30 ));
+                    setcookie('auto_log', $auto_log, ( time() + 86400 * 30 ), "/", "lymation.pq.lu", true, true);
+                    #setcookie('auto_log', $auto_log, ( time() + 86400 * 30 ));
                     header('Location: /landing/Tout.php');
                     die();
                 }else{

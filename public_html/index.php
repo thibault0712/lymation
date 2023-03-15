@@ -36,7 +36,7 @@
              <?php 
                 if(isset($_GET['login_err']))
                 {
-                    $err = htmlspecialchars($_GET['login_err']);
+                    $err = htmlentities($_GET['login_err']);
 
                     switch($err)
                     {
@@ -60,6 +60,14 @@
                         ?>
                             <div class="alert alert-danger">
                                 <strong>Erreur</strong> compte non existant
+                            </div>
+                        <?php
+                        break;
+                        
+                        case 'otherConection':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Déconnecté</strong> un autre appareil c'est connecté à votre compte 
                             </div>
                         <?php
                         break;
